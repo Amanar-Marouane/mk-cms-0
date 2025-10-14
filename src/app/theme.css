@@ -1,6 +1,7 @@
 :root {
-  --main-light: #4B6FA9;
-  --main-bold: #122849;
+  /* Regal Elegance Base Colors */
+  --main-light: #b8a7d4;
+  --main-bold: #2d1b3d;
 }
 
 :root {
@@ -9,45 +10,48 @@
 
   /* Primary colors */
   --primary: var(--main-light);
-  --primary-bold: var(--main-light);
-  --primary-bold-80: var(--main-light);
-  --primary-80: var(--main-light);
-  --primary-foreground: #ffffff;
+  --primary-bold: var(--main-bold);
+  --primary-bold-80: rgba(45, 27, 61, 0.8);
+  --primary-80: rgba(184, 167, 212, 0.8);
+  --primary-foreground: #1a1432;
 
   /* Sidebar colors */
   --sidebar: var(--main-bold);
-  --sidebar-80: var(--main-bold);
-  --sidebar-foreground: #ffffff;
-  --sidebar-accent: var(--main-bold);
-  --sidebar-accent-80: var(--main-bold);
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: var(--main-light);
+  --sidebar-80: rgba(45, 27, 61, 0.8);
+  --sidebar-foreground: #e8e6f0;
+  --sidebar-accent: #3d2550;
+  --sidebar-accent-80: rgba(61, 37, 80, 0.8);
+  --sidebar-accent-foreground: #e8e6f0;
+  --sidebar-border: rgba(184, 167, 212, 0.3);
 
   /* Card and accent */
-  --card-bg: #ffffff;
-  --accent: var(--main-bold);
+  --card-bg: #f5f3f8;
+  --accent: #d4c4e8;
 
-  /* Status colors (you can keep these if they differ) */
+  /* Status colors */
   --success: rgba(149, 213, 178, 1);
   --warning: rgba(250, 204, 21, 1);
   --danger: rgba(248, 113, 113, 1);
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   :root {
-    --primary: rgba(157, 178, 191, 1);
-    --primary-bold: rgba(16, 33, 58, 1);
-    --primary-foreground: rgba(255, 255, 255, 1);
+    /* Regal Elegance Dark Mode */
+    --primary: #b8a7d4;
+    --primary-bold: #3d2550;
+    --primary-bold-80: rgba(61, 37, 80, 0.8);
+    --primary-80: rgba(184, 167, 212, 0.8);
+    --primary-foreground: #1a1432;
 
-    --sidebar: rgba(16, 33, 58, 1);
-    --sidebar-80: rgba(16, 33, 58, 0.8);
-    --sidebar-foreground: rgba(255, 255, 255, 1);
-    --sidebar-accent: rgba(24, 52, 91, 1);
-    --sidebar-accent-80: rgba(24, 52, 91, 0.8);
-    --sidebar-accent-foreground: rgba(255, 255, 255, 1);
-    --sidebar-border: rgba(34, 52, 90, 1);
+    --sidebar: #2d1b3d;
+    --sidebar-80: rgba(45, 27, 61, 0.8);
+    --sidebar-foreground: #e8e6f0;
+    --sidebar-accent: #3d2550;
+    --sidebar-accent-80: rgba(61, 37, 80, 0.8);
+    --sidebar-accent-foreground: #e8e6f0;
+    --sidebar-border: rgba(184, 167, 212, 0.2);
 
-    --card-bg: rgba(30, 41, 59, 1);
-    --accent: rgba(129, 140, 248, 1);
+    --card-bg: #2d1b3d;
+    --accent: #d4c4e8;
   }
-} */
+}

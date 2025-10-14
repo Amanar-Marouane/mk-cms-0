@@ -39,40 +39,53 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* Regal Elegance Theme Colors */
+  --regal-purple: #2d1b3d;
+  --regal-lavender: #b8a7d4;
+  --regal-pearl: #e8e6f0;
+  --regal-deep: #1a1432;
+  --regal-light: #d4c4e8;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.269 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.371 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  --background: #1a1432;
+  --foreground: #e8e6f0;
+  --card: #2d1b3d;
+  --card-foreground: #e8e6f0;
+  --popover: #2d1b3d;
+  --popover-foreground: #e8e6f0;
+  --primary: #b8a7d4;
+  --primary-foreground: #1a1432;
+  --secondary: #3d2550;
+  --secondary-foreground: #e8e6f0;
+  --muted: #3d2550;
+  --muted-foreground: #b8a7d4;
+  --accent: #d4c4e8;
+  --accent-foreground: #1a1432;
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.439 0 0);
+  --border: rgba(184, 167, 212, 0.2);
+  --input: rgba(184, 167, 212, 0.15);
+  --ring: #b8a7d4;
+  --chart-1: #b8a7d4;
+  --chart-2: #d4c4e8;
+  --chart-3: #8b7aa8;
+  --chart-4: #e8e6f0;
+  --chart-5: #9d8bb8;
+  --sidebar: #2d1b3d;
+  --sidebar-foreground: #e8e6f0;
+  --sidebar-primary: #b8a7d4;
+  --sidebar-primary-foreground: #1a1432;
+  --sidebar-accent: #3d2550;
+  --sidebar-accent-foreground: #e8e6f0;
+  --sidebar-border: rgba(184, 167, 212, 0.2);
+  --sidebar-ring: #b8a7d4;
+
+  /* Regal Elegance Dark Theme */
+  --background: var(--regal-deep);
+  --foreground: var(--regal-pearl);
+  --card: var(--regal-purple);
+  --card-foreground: var(--regal-pearl);
 }
 
 @theme inline {
@@ -200,17 +213,17 @@
 }
 
 .scrollbar-thumb-gray-300::-webkit-scrollbar-thumb {
-  background-color: rgb(209 213 219);
+  background-color: #b8a7d4;
   border-radius: 9999px;
 }
 
 .scrollbar-track-gray-100::-webkit-scrollbar-track {
-  background-color: rgb(243 244 246);
+  background-color: #2d1b3d;
   border-radius: 9999px;
 }
 
 .hover\:scrollbar-thumb-gray-400:hover::-webkit-scrollbar-thumb {
-  background-color: rgb(156 163 175);
+  background-color: #d4c4e8;
 }
 
 .scrollbar-thumb-rounded-full::-webkit-scrollbar-thumb {
@@ -224,14 +237,153 @@
 /* Custom scrollbar for dark mode compatibility */
 @media (prefers-color-scheme: dark) {
   .scrollbar-thumb-gray-300::-webkit-scrollbar-thumb {
-    background-color: rgb(75 85 99);
+    background-color: #b8a7d4;
   }
 
   .scrollbar-track-gray-100::-webkit-scrollbar-track {
-    background-color: rgb(31 41 55);
+    background-color: #2d1b3d;
   }
 
   .hover\:scrollbar-thumb-gray-400:hover::-webkit-scrollbar-thumb {
-    background-color: rgb(107 114 128);
+    background-color: #d4c4e8;
   }
+}
+
+/* Regal Elegance specific styles */
+.regal-gradient-text {
+  background: linear-gradient(90deg, var(--regal-lavender), var(--regal-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.regal-gradient-bg {
+  background: linear-gradient(135deg, var(--regal-purple), var(--regal-lavender));
+}
+
+.regal-gradient-border {
+  position: relative;
+}
+
+.regal-gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg, var(--regal-lavender), var(--regal-light));
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.regal-glow {
+  text-shadow: 0 0 10px rgba(184, 167, 212, 0.7), 0 0 20px rgba(212, 196, 232, 0.5);
+}
+
+.regal-box-glow {
+  box-shadow: 0 0 15px rgba(184, 167, 212, 0.3), 0 0 30px rgba(212, 196, 232, 0.2);
+}
+
+.regal-hero-bg {
+  background: radial-gradient(circle at top right, rgba(184, 167, 212, 0.15), rgba(0, 0, 0, 0) 50%),
+    radial-gradient(circle at bottom left, rgba(212, 196, 232, 0.15), rgba(0, 0, 0, 0) 50%),
+    var(--regal-deep);
+}
+
+/* Additional Regal Elegance Effects */
+.regal-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.regal-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(184, 167, 212, 0.3), transparent);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+.regal-card {
+  background: var(--regal-purple);
+  border: 1px solid rgba(184, 167, 212, 0.2);
+  transition: all 0.3s ease;
+}
+
+.regal-card:hover {
+  border-color: rgba(184, 167, 212, 0.5);
+  box-shadow: 0 10px 40px rgba(184, 167, 212, 0.2);
+  transform: translateY(-2px);
+}
+
+/* AOS Custom Overrides */
+[data-aos] {
+  pointer-events: none;
+}
+
+[data-aos].aos-animate {
+  pointer-events: auto;
+}
+
+/* Customize AOS animations to match our regal theme */
+[data-aos="fade-up"] {
+  transform: translate3d(0, 30px, 0);
+}
+
+[data-aos="fade-down"] {
+  transform: translate3d(0, -30px, 0);
+}
+
+[data-aos="fade-right"] {
+  transform: translate3d(-30px, 0, 0);
+}
+
+[data-aos="fade-left"] {
+  transform: translate3d(30px, 0, 0);
+}
+
+[data-aos="fade-up-right"] {
+  transform: translate3d(-30px, 30px, 0);
+}
+
+[data-aos="fade-up-left"] {
+  transform: translate3d(30px, 30px, 0);
+}
+
+[data-aos="fade-down-right"] {
+  transform: translate3d(-30px, -30px, 0);
+}
+
+[data-aos="fade-down-left"] {
+  transform: translate3d(30px, -30px, 0);
+}
+
+[data-aos="zoom-in"] {
+  transform: scale(.9);
+}
+
+/* Custom Regal Glow Animation for AOS */
+[data-aos="regal-glow"] {
+  opacity: 0;
+  transition-property: opacity, box-shadow;
+}
+
+[data-aos="regal-glow"].aos-animate {
+  opacity: 1;
+  box-shadow: 0 0 15px rgba(184, 167, 212, 0.4), 0 0 30px rgba(212, 196, 232, 0.2);
 }

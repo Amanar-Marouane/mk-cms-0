@@ -6,31 +6,30 @@ import React from 'react';
  *
  * Usage Examples:
  *
- * 1. Basic scrollable container:
- * <PageContainer>
+ * 1. Basic scrollable container for dashboard pages:
+ * <PageContainer fullHeight>
  *   <YourContent />
  * </PageContainer>
  *
- * 2. Non-scrollable with custom padding:
- * <PageContainer
- *   scrollable={false}
- *   padding="p-6"
- * >
- *   <FixedContent />
+ * 2. Marketing page with natural flow (for footers):
+ * <PageContainer fullHeight={false}>
+ *   <MarketingContent />
+ *   <Footer />
  * </PageContainer>
  *
- * 3. Full height container:
+ * 3. Custom styling:
  * <PageContainer
- *   height="h-screen"
+ *   padding="p-6"
  *   className="bg-gray-50"
  * >
- *   <FullPageContent />
+ *   <YourContent />
  * </PageContainer>
  */
 
 interface PageContainerProps {
   children: React.ReactNode;
   scrollable?: boolean;
+  fullHeight?: boolean;
   height?: string;
   padding?: string;
   className?: string;
@@ -39,18 +38,24 @@ interface PageContainerProps {
 export default function PageContainer({
   children,
   scrollable = true,
-  height = 'h-[calc(100dvh-64px)]',
+  fullHeight = false,
+  height,
   padding = 'p-4 md:px-6',
   className = ''
 }: PageContainerProps) {
+  // Default height calculation for dashboard-style pages
+  const calculatedHeight = height || (fullHeight ? 'h-[calc(100dvh-64px)]' : 'min-h-0');
+
   return (
     <>
-      {scrollable ? (
-        <ScrollArea className={`${height} ${className}`}>
+      {scrollable && fullHeight ? (
+        // Scrollable container with fixed height (for dashboard style pages)
+        <ScrollArea className={`${calculatedHeight} ${className}`}>
           <div className={`flex flex-1 ${padding}`}>{children}</div>
         </ScrollArea>
       ) : (
-        <div className={`flex flex-1 ${padding} ${height} ${className}`}>{children}</div>
+        // Natural flow container (better for marketing pages with footers)
+        <div className={`flex flex-1 flex-col ${padding} ${fullHeight ? calculatedHeight : ''} ${className}`}>{children}</div>
       )}
     </>
   );

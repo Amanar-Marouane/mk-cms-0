@@ -1,35 +1,3 @@
-// export default {
-//     content: [
-//         './pages/**/*.{js,ts,jsx,tsx}',
-//         './components/**/*.{js,ts,jsx,tsx}',
-//         './app/**/*.{js,ts,jsx,tsx}',
-//     ],
-//     theme: {
-//         extend: {
-//             colors: {
-//                 background: 'rgb(var(--background) / <alpha-value>)',
-//                 foreground: 'rgb(var(--foreground) / <alpha-value>)',
-//                 primary: 'rgb(var(--primary) / <alpha-value>)',
-//                 'primary-bold': 'rgb(var(--primary-bold) / <alpha-value>)',
-//                 'primary-foreground': 'rgb(var(--primary-foreground) / <alpha-value>)',
-//                 muted: 'rgb(var(--muted) / <alpha-value>)',
-//                 border: 'rgb(var(--border) / <alpha-value>)',
-//                 'card-bg': 'rgb(var(--card-bg) / <alpha-value>)',
-//                 accent: 'rgb(var(--accent) / <alpha-value>)',
-//                 success: 'rgb(var(--success) / <alpha-value>)',
-//                 warning: 'rgb(var(--warning) / <alpha-value>)',
-//                 danger: 'rgb(var(--danger) / <alpha-value>)',
-//                 'text-muted-foreground': 'rgb(var(--text-muted-foreground) / <alpha-value>)',
-//                 sidebar: 'rgb(var(--sidebar) / <alpha-value>)',
-//                 'sidebar-accent': 'rgb(var(--sidebar-accent) / <alpha-value>)',
-//                 'sidebar-foreground': 'rgb(var(--sidebar-foreground) / <alpha-value>)',
-//                 'sidebar-border': 'rgb(var(--sidebar-border) / <alpha-value>)',
-//             },
-//         }
-//     },
-//     darkMode: 'media', // or 'class'
-//     plugins: [],
-// };
 export default {
     darkMode: ["class"],
     content: [
@@ -81,11 +49,28 @@ export default {
                     DEFAULT: "hsl(var(--card))",
                     foreground: "hsl(var(--card-foreground))",
                 },
+
+                // Add regal theme colors as direct references
+                'regal-purple': '#2d1b3d',
+                'regal-lavender': '#b8a7d4',
+                'regal-pearl': '#e8e6f0',
+                'regal-deep': '#1a1432',
+                'regal-light': '#d4c4e8',
             },
             borderRadius: {
                 lg: "var(--radius)",
                 md: "calc(var(--radius) - 2px)",
                 sm: "calc(var(--radius) - 4px)",
+            },
+            boxShadow: {
+                'regal-glow': '0 0 15px rgba(184, 167, 212, 0.3), 0 0 30px rgba(212, 196, 232, 0.2)',
+            },
+            backgroundImage: {
+                'regal-gradient': 'linear-gradient(135deg, var(--regal-purple), var(--regal-lavender))',
+                'regal-hero': 'radial-gradient(circle at top right, rgba(184, 167, 212, 0.15), rgba(0, 0, 0, 0) 50%), radial-gradient(circle at bottom left, rgba(212, 196, 232, 0.15), rgba(0, 0, 0, 0) 50%)',
+            },
+            textShadow: {
+                'regal': '0 0 10px rgba(184, 167, 212, 0.7), 0 0 20px rgba(212, 196, 232, 0.5)',
             },
             keyframes: {
                 "accordion-down": {
@@ -96,12 +81,37 @@ export default {
                     from: { height: "var(--radix-accordion-content-height)" },
                     to: { height: 0 },
                 },
+                'shimmer': {
+                    '0%': { left: '-100%' },
+                    '100%': { left: '100%' }
+                },
+                'pulse-regal': {
+                    '0%, 100%': {
+                        boxShadow: '0 0 15px rgba(184, 167, 212, 0.3), 0 0 30px rgba(212, 196, 232, 0.2)'
+                    },
+                    '50%': {
+                        boxShadow: '0 0 20px rgba(184, 167, 212, 0.5), 0 0 40px rgba(212, 196, 232, 0.3)'
+                    },
+                }
             },
             animation: {
                 "accordion-down": "accordion-down 0.2s ease-out",
                 "accordion-up": "accordion-up 0.2s ease-out",
+                'shimmer': 'shimmer 3s infinite',
+                'pulse-regal': 'pulse-regal 3s infinite',
             },
         },
     },
-    plugins: [require("tailwindcss-animate")],
+    plugins: [
+        require("tailwindcss-animate"),
+        // Add text-shadow plugin
+        function ({ addUtilities }) {
+            const newUtilities = {
+                '.text-shadow-regal': {
+                    textShadow: '0 0 10px rgba(184, 167, 212, 0.7), 0 0 20px rgba(212, 196, 232, 0.5)',
+                },
+            }
+            addUtilities(newUtilities)
+        }
+    ],
 }

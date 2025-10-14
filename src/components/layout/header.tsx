@@ -1,9 +1,10 @@
 import { Separator } from '../ui/separator';
 import { SidebarTrigger } from '../ui/sidebar';
 import { UserNav } from './user-nav';
+import { Button } from '../ui/button';
 
 /**
- * General Application Header Component
+ * General Application Header Component for MonkeysLegion
  *
  * Usage Examples:
  *
@@ -50,9 +51,16 @@ export default function Header({
     </nav>
   );
 
+  // Default right actions
+  const DefaultActions = () => (
+    <div className='flex items-center gap-3'>
+      <UserNav />
+    </div>
+  );
+
   return (
     <header
-      className={`flex h-16 shrink-0 items-center justify-between gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12 ${className}`}
+      className={`flex h-16 shrink-0 items-center justify-between gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12 border-b border-gray-800/20 bg-background/80 backdrop-blur-sm ${className}`}
     >
       <div className='flex items-center gap-2 px-4'>
         {showSidebar && <SidebarTrigger />}
@@ -63,7 +71,7 @@ export default function Header({
       </div>
 
       <div className='flex items-center gap-2 px-4'>
-        {rightContent || <UserNav />}
+        {rightContent || <DefaultActions />}
       </div>
     </header>
   );

@@ -2,23 +2,83 @@
 
 import PageContainer from '@/components/layout/page-container';
 import Footer from '@/components/ui/footer';
+import { Logo } from '@/components/ui/logo';
+import SiteLayout from '@/components/layout/SiteLayout';
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
+import AIDemoPreview from '@/components/demo/AIDemoPreview';
 
 export default function Page() {
-
   return (
-    <PageContainer className="px-4 py-8">
-      <div className="flex flex-col gap-8 w-full mx-auto">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-foreground mb-4">
-            Welcome to <span className="text-primary">NextEdge</span>
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A modern Next.js starter template with ready-to-use components
-          </p>
-        </div>
+    <SiteLayout>
+      <PageContainer padding='p-0' fullHeight={false} scrollable={false} className="min-h-screen">
+        <div className='w-full'>
+          {/* Hero Section */}
+          <section className="regal-hero-bg min-h-screen flex flex-col items-center justify-center text-center px-4 py-12 md:py-20">
+            <div data-aos="fade-up" data-aos-delay="100" className="w-full">
+              <div className="max-w-4xl mx-auto space-y-4 md:space-y-6 mb-8 md:mb-12">
+                <div className="flex justify-center mb-6">
+                  <Logo variant="monkeyscms" width={240} height={60} />
+                </div>
 
-        <Footer className='fixed inset-x-0 bottom-0' />
-      </div>
-    </PageContainer>
+                <div className="inline-block mb-4 px-4 py-1 bg-white/5 backdrop-blur-sm rounded-full">
+                  <p className="text-sm font-medium text-white">
+                    Next-Generation Content Management System
+                  </p>
+                </div>
+
+                <h1 className="text-4xl md:text-6xl font-bold tracking-tight regal-gradient-text regal-glow">
+                  AI Builds. You Deploy. Instantly.
+                </h1>
+
+                <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
+                  The next-gen CMS that generates and optimizes websites in seconds with full SEO and performance automation.
+                </p>
+              </div>
+            </div>
+
+            {/* Demo Preview - Better responsive spacing */}
+            <div data-aos="fade-up" data-aos-delay="300" className="w-full px-4 mb-12 md:mb-20">
+              <div className="max-w-6xl mx-auto">
+                <AIDemoPreview />
+              </div>
+            </div>
+          </section>
+
+          {/* Partners Section */}
+          <section className="py-12 md:py-20 bg-background/50">
+            <div className="container mx-auto px-4">
+              <div data-aos="fade-up">
+                <h2 className="text-2xl font-bold text-center mb-10">Built on the Monkeys Ecosystem</h2>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {['monkeyslegion', 'monkeyscloud', 'monkeysmail', 'monkeyscms'].map((variant, index) => (
+                  <div
+                    key={variant}
+                    data-aos="fade-up"
+                    data-aos-delay={index * 100}
+                  >
+                    <div className="bg-card p-6 rounded-lg border border-gray-800/20 text-center hover:border-primary/30 transition-colors h-full flex flex-col">
+                      <div className="flex justify-center items-center mb-4 flex-grow">
+                        <Logo variant={variant as any} height={30} />
+                      </div>
+                      <p className="text-muted-foreground">
+                        {index === 0 && "High-performance JS/PHP hybrid core"}
+                        {index === 1 && "Cloud-ready infrastructure for instant deployments"}
+                        {index === 2 && "Integrated email services for your applications"}
+                        {index === 3 && "AI-powered CMS for automated website generation"}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <Footer />
+        </div>
+      </PageContainer>
+    </SiteLayout>
   );
 }

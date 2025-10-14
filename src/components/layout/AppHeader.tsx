@@ -1,36 +1,12 @@
+"use client";
+
 import { Separator } from '../ui/separator';
 import { SidebarTrigger } from '../ui/sidebar';
 import { Button } from '../ui/button';
-import { IconBell, IconSearch, IconUser } from '@tabler/icons-react';
 import React from 'react';
-
-/**
- * General Application Header Component
- * 
- * Usage Examples:
- * 
- * 1. Basic header with breadcrumbs:
- * <AppHeader>
- *   <BreadcrumbNav items={breadcrumbItems} />
- * </AppHeader>
- * 
- * 2. Header with custom actions:
- * <AppHeader 
- *   rightContent={<CustomUserMenu />}
- *   showSeparator={false}
- * />
- * 
- * 3. Header with search and notifications:
- * <AppHeader
- *   leftContent={<SearchBar />}
- *   rightContent={
- *     <div className="flex items-center gap-2">
- *       <NotificationButton />
- *       <UserMenu />
- *     </div>
- *   }
- * />
- */
+import { Logo } from '../ui/logo';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 interface AppHeaderProps {
     children?: React.ReactNode;
@@ -51,29 +27,57 @@ export default function AppHeader({
     className = "",
     height = "h-16"
 }: AppHeaderProps) {
+    const pathname = usePathname();
 
-    // Default right content - simple user menu
+    // Navigation links for the site
+    const navLinks = [
+        { name: 'Home', href: '/' },
+        { name: 'How It Works', href: '/how-it-works' },
+        { name: 'Technology', href: '/technology' },
+        { name: 'For Investors', href: '/investors' },
+        { name: 'Business Model', href: '/business-model' }, // Added Business Model link
+        { name: 'About', href: '/about' },
+        { name: 'Contact', href: '/contact' },
+    ];
+
+    // Default left content with logo
+    const defaultLeftContent = (
+        <Link href="/" className="flex items-center">
+            <Logo variant="monkeyscms" height={30} />
+        </Link>
+    );
+
+    // Default right content - navigation links and CTA
     const defaultRightContent = (
-        <div className="flex items-center gap-2">
-            <Button variant="ghost" size="icon" className="relative">
-                <IconBell className="h-4 w-4" />
-                <span className="absolute -top-1 -right-1 h-2 w-2 bg-red-500 rounded-full"></span>
-            </Button>
-            <Button variant="ghost" size="icon">
-                <IconSearch className="h-4 w-4" />
-            </Button>
-            <Button variant="ghost" size="icon">
-                <IconUser className="h-4 w-4" />
-            </Button>
+        <div className="flex items-center gap-4">
+            <nav className="hidden md:flex items-center gap-4">
+                {navLinks.map((link) => {
+                    const isActive = pathname === link.href ||
+                        (link.href !== '/' && pathname?.startsWith(link.href));
+
+                    return (
+                        <Link
+                            key={link.name}
+                            href={link.href}
+                            className={`text-sm ${isActive
+                                ? 'text-primary font-medium regal-glow'
+                                : 'text-muted-foreground hover:text-primary'
+                                } transition-colors`}
+                        >
+                            {link.name}
+                        </Link>
+                    );
+                })}
+            </nav>
         </div>
     );
 
     return (
-        <header className={`flex ${height} shrink-0 items-center justify-between gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12 ${className}`}>
+        <header className={`flex ${height} shrink-0 items-center justify-between gap-2 transition-[width,height] ease-linear border-b border-gray-800/20 bg-background/80 backdrop-blur-sm ${className}`}>
             <div className='flex items-center gap-2 px-4'>
                 {showSidebar && <SidebarTrigger />}
                 {showSeparator && showSidebar && <Separator orientation='vertical' className='mr-2 h-4' />}
-                {leftContent || children}
+                {leftContent || children || defaultLeftContent}
             </div>
 
             <div className='flex items-center gap-2 px-4'>
