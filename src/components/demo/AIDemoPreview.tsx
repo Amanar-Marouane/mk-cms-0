@@ -200,7 +200,7 @@ export default function AIDemoPreview() {
                                 disabled={isTyping || isGenerating}
                                 variant="outline"
                                 size="sm"
-                                className="regal-gradient-border text-primary w-full text-xs"
+                                className="ml-gradient-border text-primary w-full text-xs"
                             >
                                 Restart Demo
                             </Button>
@@ -309,7 +309,7 @@ export default function AIDemoPreview() {
                                                     initial={{ opacity: 0, y: 10 }}
                                                     animate={{ opacity: 1, y: 0 }}
                                                     transition={{ duration: 0.5 }}
-                                                    className="font-bold text-sm md:text-xl regal-gradient-text"
+                                                    className="font-bold text-sm md:text-xl ml-gradient-text"
                                                 >
                                                     Fine Dining Experience
                                                 </motion.h2>
@@ -331,7 +331,7 @@ export default function AIDemoPreview() {
                                                     initial={{ opacity: 0, scale: 0.8 }}
                                                     animate={{ opacity: 1, scale: 1 }}
                                                     transition={{ duration: 0.5, delay: 0.1 }}
-                                                    className="mt-2 md:mt-4 text-[10px] md:text-xs px-2 md:px-3 py-1 regal-gradient-bg text-background rounded-full"
+                                                    className="mt-2 md:mt-4 text-[10px] md:text-xs px-2 md:px-3 py-1 ml-gradient-bg text-background rounded-full"
                                                 >
                                                     Book a Table
                                                 </motion.button>
@@ -481,7 +481,7 @@ export default function AIDemoPreview() {
                                         animate={{ opacity: [0, 0.1, 0] }}
                                         transition={{ duration: 1 }}
                                     >
-                                        <div className="absolute inset-0 bg-primary/5 regal-shimmer"></div>
+                                        <div className="absolute inset-0 bg-primary/5 ml-shimmer"></div>
                                     </motion.div>
                                 )}
                             </AnimatePresence>
@@ -501,8 +501,8 @@ export default function AIDemoPreview() {
                                         <h3 className="text-[10px] md:text-sm font-medium">Complete!</h3>
                                     </div>
                                     <div className="grid grid-cols-2 gap-1.5 md:gap-2 mt-2 md:mt-3">
-                                        <Button size="sm" className="regal-gradient-bg text-background text-[9px] md:text-xs h-7 md:h-8">Deploy</Button>
-                                        <Button size="sm" variant="outline" className="regal-gradient-border text-[9px] md:text-xs h-7 md:h-8">Edit</Button>
+                                        <Button size="sm" className="ml-gradient-bg text-background text-[9px] md:text-xs h-7 md:h-8">Deploy</Button>
+                                        <Button size="sm" variant="outline" className="ml-gradient-border text-[9px] md:text-xs h-7 md:h-8">Edit</Button>
                                     </div>
                                 </div>
                             </motion.div>

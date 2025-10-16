@@ -216,7 +216,7 @@ export default function BusinessModelPage() {
                     {/* Core Philosophy */}
                     <section className="py-20 px-4 bg-background">
                         <div className="container mx-auto">
-                            <div className="max-w-4xl mx-auto">
+                            <div className="max-w-4xl mx-auto" data-aos="fade-up">
                                 <div className="bg-card p-8 md:p-12 rounded-lg border border-gray-800/20">
                                     <h2 className="text-3xl font-bold mb-6">Open Core, Premium Services</h2>
                                     <p className="text-muted-foreground mb-6">
@@ -235,11 +235,11 @@ export default function BusinessModelPage() {
                     {/* Revenue Streams */}
                     <section className="py-20 px-4 bg-background/80">
                         <div className="container mx-auto">
-                            <h2 className="text-3xl font-bold text-center mb-12">Revenue Streams</h2>
+                            <h2 className="text-3xl font-bold text-center mb-12" data-aos="fade-up">Revenue Streams</h2>
                             <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
                                 {revenueStreams.map((stream, index) => (
-                                    <div key={index} className="bg-card p-8 rounded-lg border border-gray-800/20 hover:border-primary/30 transition-colors">
-                                        <div className="bg-gradient-to-br from-primary/20 to-accent/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                                    <div key={index} className="bg-card p-8 rounded-lg border border-border hover:border-primary/30 transition-colors" data-aos="fade-up" data-aos-delay={index * 100}>
+                                        <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
                                             <div className="text-primary">
                                                 {stream.icon}
                                             </div>
@@ -257,8 +257,8 @@ export default function BusinessModelPage() {
                     {/* Pricing Model */}
                     <section className="py-20 px-4 bg-card">
                         <div className="container mx-auto">
-                            <h2 className="text-3xl font-bold text-center mb-4">Pricing Model</h2>
-                            <p className="text-xl text-muted-foreground text-center max-w-3xl mx-auto mb-12">
+                            <h2 className="text-3xl font-bold text-center mb-4" data-aos="fade-up">Pricing Model</h2>
+                            <p className="text-xl text-muted-foreground text-center max-w-3xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">
                                 Flexible options designed to scale with your needs
                             </p>
 
@@ -266,12 +266,14 @@ export default function BusinessModelPage() {
                                 {tiers.map((tier, index) => (
                                     <div
                                         key={index}
-                                        className={`bg-background/20 p-8 rounded-lg border ${tier.highlighted ? 'border-primary/50' : 'border-gray-800/20'
-                                            } ${tier.highlighted ? 'regal-box-glow' : ''}`}
+                                        className={`bg-background/20 p-8 rounded-lg border flex flex-col justify-between items-start ${tier.highlighted ? 'border-primary/50' : 'border-gray-800/20'
+                                            } ${tier.highlighted ? 'ml-box-glow' : ''}`}
+                                        data-aos="fade-up"
+                                        data-aos-delay={index * 100}
                                     >
                                         <h3 className="text-2xl font-bold text-primary mb-2">{tier.name}</h3>
                                         <div className="flex items-end mb-4">
-                                            <span className="text-4xl font-bold text-white">{tier.price}</span>
+                                            <span className="text-4xl font-bold">{tier.price}</span>
                                             {tier.period && <span className="text-muted-foreground ml-1">{tier.period}</span>}
                                         </div>
                                         <p className="text-muted-foreground mb-6">{tier.description}</p>
@@ -287,7 +289,7 @@ export default function BusinessModelPage() {
                                         </div>
                                         <Button
                                             className={`mt-auto w-full ${tier.highlighted
-                                                ? 'regal-gradient-bg text-background font-bold hover:opacity-90'
+                                                ? 'ml-gradient-bg text-white font-bold hover:opacity-90'
                                                 : 'bg-card border border-primary/30 text-primary hover:bg-primary/10'
                                                 }`}
                                         >
@@ -302,12 +304,12 @@ export default function BusinessModelPage() {
                     {/* Enhanced Feature Comparison */}
                     <section className="py-20 px-4 bg-background">
                         <div className="container mx-auto">
-                            <h2 className="text-3xl font-bold text-center mb-6">Feature Comparison</h2>
-                            <p className="text-xl text-muted-foreground text-center max-w-3xl mx-auto mb-12">
+                            <h2 className="text-3xl font-bold text-center mb-6" data-aos="fade-up">Feature Comparison</h2>
+                            <p className="text-xl text-muted-foreground text-center max-w-3xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">
                                 Find the plan that's right for your needs
                             </p>
 
-                            <div className="max-w-6xl mx-auto">
+                            <div className="max-w-6xl mx-auto" data-aos="fade-up" data-aos-delay="200">
                                 {/* Header Row */}
                                 <div className="grid grid-cols-4 gap-4 mb-6 px-4">
                                     <div className="text-left font-medium text-muted-foreground">Features</div>
@@ -423,8 +425,8 @@ export default function BusinessModelPage() {
                     {/* CTA */}
                     <section className="py-20 px-4 bg-background/80">
                         <div className="container mx-auto">
-                            <div className="max-w-4xl mx-auto text-center p-12 bg-card rounded-lg border border-gray-800/20">
-                                <h2 className="text-3xl font-bold mb-6 regal-gradient-text">
+                            <div className="max-w-4xl mx-auto text-center p-12 bg-card rounded-lg border border-gray-800/20" data-aos="zoom-in">
+                                <h2 className="text-3xl font-bold mb-6 ml-gradient-text">
                                     Ready to revolutionize your web presence?
                                 </h2>
                                 <p className="text-xl text-muted-foreground mb-8">

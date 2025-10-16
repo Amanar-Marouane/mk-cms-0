@@ -108,9 +108,9 @@ export default function ContactPage() {
                             <div className="max-w-5xl mx-auto">
                                 <div className="grid md:grid-cols-5 gap-10 md:gap-16">
                                     {/* Info Column */}
-                                    <ScrollReveal direction="right" className="md:col-span-2">
-                                        <div className="bg-card p-8 rounded-lg border border-gray-800/20 h-full">
-                                            <h2 className="text-2xl font-bold mb-6 regal-gradient-text">Get in Touch</h2>
+                                    <div className="md:col-span-2" data-aos="fade-right">
+                                        <div className="bg-card p-8 rounded-lg border border-border h-full">
+                                            <h2 className="text-2xl font-bold mb-6 ml-gradient-text">Get in Touch</h2>
 
                                             <div className="space-y-6">
                                                 <div>
@@ -152,11 +152,11 @@ export default function ContactPage() {
                                                 </div>
                                             </div>
                                         </div>
-                                    </ScrollReveal>
+                                    </div>
 
                                     {/* Form Column */}
-                                    <ScrollReveal direction="left" className="md:col-span-3">
-                                        <div className="bg-card p-8 rounded-lg border border-gray-800/20">
+                                    <div className="md:col-span-3" data-aos="fade-left">
+                                        <div className="bg-card p-8 rounded-lg border border-border">
                                             {formStatus === 'success' ? (
                                                 <Alert className="bg-green-500/10 border-green-500/20 text-green-400 mb-6">
                                                     <CheckCircle2 className="h-5 w-5" />
@@ -246,7 +246,7 @@ export default function ContactPage() {
                                                 <Button
                                                     type="submit"
                                                     disabled={formStatus === 'submitting'}
-                                                    className="w-full regal-gradient-bg text-black font-bold hover:opacity-90"
+                                                    className="w-full ml-gradient-bg text-white font-bold hover:opacity-90"
                                                 >
                                                     {formStatus === 'submitting' ? (
                                                         <span className="flex items-center gap-2">
@@ -265,7 +265,7 @@ export default function ContactPage() {
                                                 </Button>
                                             </form>
                                         </div>
-                                    </ScrollReveal>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -275,64 +275,54 @@ export default function ContactPage() {
                     <section className="py-20 px-4 bg-background/80">
                         <div className="container mx-auto">
                             <div className="max-w-4xl mx-auto">
-                                <ScrollReveal>
-                                    <h2 className="text-3xl font-bold text-center mb-10">Why Join MonkeysLegion?</h2>
-                                </ScrollReveal>
+                                <h2 className="text-3xl font-bold text-center mb-10" data-aos="fade-up">Why Join MonkeysLegion?</h2>
 
                                 <div className="grid md:grid-cols-3 gap-8">
-                                    <ScrollReveal direction="up" delay={0.1}>
-                                        <div className="bg-card p-6 rounded-lg border border-gray-800/20 hover:border-primary/30 transition-colors h-full">
-                                            <div className="bg-gradient-to-br from-primary/20 to-accent/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                                </svg>
-                                            </div>
-                                            <h3 className="text-xl font-bold text-primary mb-3">Cutting-Edge Tech</h3>
-                                            <p className="text-muted-foreground">
-                                                Work with state-of-the-art AI models and high-performance frameworks that push the boundaries of what's possible.
-                                            </p>
+                                    <div className="bg-card p-6 rounded-lg border border-border hover:border-primary/30 transition-colors h-full" data-aos="fade-up" data-aos-delay="100">
+                                        <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                            </svg>
                                         </div>
-                                    </ScrollReveal>
+                                        <h3 className="text-xl font-bold text-primary mb-3">Cutting-Edge Tech</h3>
+                                        <p className="text-muted-foreground">
+                                            Work with state-of-the-art AI models and high-performance frameworks that push the boundaries of what's possible.
+                                        </p>
+                                    </div>
 
-                                    <ScrollReveal direction="up" delay={0.2}>
-                                        <div className="bg-card p-6 rounded-lg border border-gray-800/20 hover:border-primary/30 transition-colors h-full">
-                                            <div className="bg-gradient-to-br from-primary/20 to-accent/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                                                </svg>
-                                            </div>
-                                            <h3 className="text-xl font-bold text-primary mb-3">Global Impact</h3>
-                                            <p className="text-muted-foreground">
-                                                Help democratize web creation and empower businesses and creators worldwide with next-gen tools.
-                                            </p>
+                                    <div className="bg-card p-6 rounded-lg border border-border hover:border-primary/30 transition-colors h-full" data-aos="fade-up" data-aos-delay="200">
+                                        <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                                            </svg>
                                         </div>
-                                    </ScrollReveal>
+                                        <h3 className="text-xl font-bold text-primary mb-3">Global Impact</h3>
+                                        <p className="text-muted-foreground">
+                                            Help democratize web creation and empower businesses and creators worldwide with next-gen tools.
+                                        </p>
+                                    </div>
 
-                                    <ScrollReveal direction="up" delay={0.3}>
-                                        <div className="bg-card p-6 rounded-lg border border-gray-800/20 hover:border-primary/30 transition-colors h-full">
-                                            <div className="bg-gradient-to-br from-primary/20 to-accent/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                                                </svg>
-                                            </div>
-                                            <h3 className="text-xl font-bold text-primary mb-3">Agile Team</h3>
-                                            <p className="text-muted-foreground">
-                                                Join a passionate team of innovators with decades of combined experience in cloud, framework, and AI development.
-                                            </p>
+                                    <div className="bg-card p-6 rounded-lg border border-border hover:border-primary/30 transition-colors h-full" data-aos="fade-up" data-aos-delay="300">
+                                        <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                            </svg>
                                         </div>
-                                    </ScrollReveal>
+                                        <h3 className="text-xl font-bold text-primary mb-3">Agile Team</h3>
+                                        <p className="text-muted-foreground">
+                                            Join a passionate team of innovators with decades of combined experience in cloud, framework, and AI development.
+                                        </p>
+                                    </div>
                                 </div>
 
-                                <ScrollReveal delay={0.4}>
-                                    <div className="mt-12 text-center">
-                                        <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-6">
-                                            We're always looking for talented developers, visionary designers, and AI specialists to join our mission.
-                                        </p>
-                                        <Button className="px-8 py-6 regal-gradient-bg text-black font-bold hover:opacity-90">
-                                            Apply to Join the Team
-                                        </Button>
-                                    </div>
-                                </ScrollReveal>
+                                <div className="mt-12 text-center" data-aos="fade-up" data-aos-delay="400">
+                                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-6">
+                                        We're always looking for talented developers, visionary designers, and AI specialists to join our mission.
+                                    </p>
+                                    <Button className="px-8 py-6 ml-gradient-bg text-white font-bold hover:opacity-90">
+                                        Apply to Join the Team
+                                    </Button>
+                                </div>
                             </div>
                         </div>
                     </section>

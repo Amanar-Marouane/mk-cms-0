@@ -1,19 +1,11 @@
 import Link from 'next/link';
 import { Logo } from './logo';
+import { navLinks } from '@/constants/data';
 
 const Footer = ({ className = "" }) => {
-  const navigationLinks = [
-    { title: 'Home', href: '/' },
-    { title: 'Technology', href: '/technology' },
-    { title: 'How It Works', href: '/how-it-works' },
-    { title: 'Business Model', href: '/business-model' },
-    { title: 'About', href: '/about' },
-    { title: 'Investors', href: '/investors' },
-    { title: 'Contact', href: '/contact' },
-  ];
 
   return (
-    <footer className={`border-t border-gray-800/20 bg-background/95 backdrop-blur-sm py-12 mt-auto ${className}`}>
+    <footer className={`border-t border-border bg-background/95 backdrop-blur-sm py-12 mt-auto ${className}`}>
       <div className='container mx-auto px-6'>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Brand Column */}
@@ -28,15 +20,15 @@ const Footer = ({ className = "" }) => {
 
           {/* Quick Links */}
           <div className="col-span-1">
-            <h3 className="text-sm font-medium mb-4 regal-gradient-text">Quick Links</h3>
+            <h3 className="text-sm font-medium mb-4 ml-gradient-text">Quick Links</h3>
             <ul className="grid grid-cols-2 sm:grid-cols-1 gap-y-2 gap-x-4">
-              {navigationLinks.map((link, index) => (
+              {navLinks.map((link, index) => (
                 <li key={index}>
                   <Link
                     href={link.href}
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    {link.title}
+                    {link.name}
                   </Link>
                 </li>
               ))}
@@ -45,7 +37,7 @@ const Footer = ({ className = "" }) => {
 
           {/* Newsletter */}
           <div className="col-span-1">
-            <h3 className="text-sm font-medium mb-4 regal-gradient-text">Stay Updated</h3>
+            <h3 className="text-sm font-medium mb-4 ml-gradient-text">Stay Updated</h3>
             <div className="space-y-3">
               <p className="text-sm text-muted-foreground">
                 Subscribe to our newsletter for updates
@@ -54,9 +46,9 @@ const Footer = ({ className = "" }) => {
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-1 rounded-md border border-gray-800/20 bg-background/50 px-3 py-2 text-sm min-w-0"
+                  className="flex-1 rounded-md border border-border bg-background/50 px-3 py-2 text-sm min-w-0"
                 />
-                <button className="rounded-md regal-gradient-bg px-3 py-2 text-sm font-medium text-background hover:opacity-90 whitespace-nowrap">
+                <button className="rounded-md ml-gradient-bg px-3 py-2 text-sm font-medium text-white hover:opacity-90 whitespace-nowrap">
                   Subscribe
                 </button>
               </div>
@@ -65,9 +57,9 @@ const Footer = ({ className = "" }) => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800/20 pt-6 flex flex-col md:flex-row justify-center items-center gap-4 text-center md:text-left">
+        <div className="border-t border-border pt-6 flex flex-col md:flex-row justify-center items-center gap-4 text-center md:text-left">
           <p className="text-sm text-muted-foreground">
-            © MonkeysLegion {new Date().getFullYear()} – <span className="regal-gradient-text">AI-Powered CMS</span>
+            © MonkeysLegion {new Date().getFullYear()} – <span className="ml-gradient-text">AI-Powered CMS</span>
           </p>
         </div>
       </div>

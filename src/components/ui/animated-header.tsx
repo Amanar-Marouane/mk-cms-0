@@ -43,10 +43,10 @@ export default function AnimatedHeader({
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
 
-        // Animation variables
+        // Animation variables - Orange theme
         const waves = [
             {
-                color: 'rgba(0, 255, 255, 0.05)',
+                color: 'rgba(234, 138, 10, 0.05)', // Orange
                 amplitude: 25,
                 frequency: 0.02,
                 speed: 0.05,
@@ -55,7 +55,7 @@ export default function AnimatedHeader({
                 blur: 30
             },
             {
-                color: 'rgba(30, 190, 116, 0.04)',
+                color: 'rgba(234, 95, 21, 0.03)', // Orange Darker
                 amplitude: 20,
                 frequency: 0.03,
                 speed: 0.03,
@@ -64,7 +64,7 @@ export default function AnimatedHeader({
                 blur: 20
             },
             {
-                color: 'rgba(0, 255, 255, 0.03)',
+                color: 'rgba(234, 138, 10, 0.03)', // Orange lighter
                 amplitude: 35,
                 frequency: 0.01,
                 speed: 0.02,
@@ -219,7 +219,7 @@ export default function AnimatedHeader({
         }
     };
 
-    // Generate particle data with pre-calculated values to avoid TypeScript errors
+    // Generate particle data - Orange particles
     const particles = Array.from({ length: 20 }).map((_, index) => ({
         id: index,
         initialX: `${Math.random() * 100}%`,
@@ -243,21 +243,21 @@ export default function AnimatedHeader({
     return (
         <section
             ref={containerRef}
-            className={`regal-hero-bg relative overflow-hidden ${height} ${className}`}
+            className={`relative overflow-hidden ${height} ${className}`}
         >
             {/* Canvas for wave animation */}
-            <canvas
+            {/* <canvas
                 ref={canvasRef}
                 className="absolute inset-0 w-full h-full"
                 style={{ zIndex: 0 }}
-            />
+            /> */}
 
-            {/* Animated dots in the background */}
+            {/* Animated dots in the background - Orange theme */}
             <div className="absolute inset-0 w-full h-full" style={{ zIndex: 0 }}>
                 {particles.map(particle => (
                     <motion.div
                         key={particle.id}
-                        className="absolute w-1 h-1 rounded-full bg-cyan-400/20"
+                        className="absolute w-1 h-1 rounded-full bg-primary/20"
                         initial={{
                             x: particle.initialX,
                             y: particle.initialY,
@@ -278,10 +278,10 @@ export default function AnimatedHeader({
             </div>
 
             {/* Content */}
-            <div className="container mx-auto px-4 relative z-10">
+            <div className="container mx-auto px-4 relative z-10" data-aos="fade-bottom">
                 <div className={`max-w-4xl mx-auto ${textAlignment}`}>
                     <motion.h1
-                        className="text-4xl md:text-5xl font-bold tracking-tight regal-gradient-text regal-glow mb-6"
+                        className="text-4xl md:text-5xl font-bold ml-gradient-text mb-6"
                         initial="hidden"
                         animate="visible"
                         variants={titleVariants}

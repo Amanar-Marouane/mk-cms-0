@@ -11,21 +11,24 @@ export default function NotFound() {
         <Logo variant="monkeyslegion" width={200} height={50} />
       </div>
 
-      <span className='from-foreground bg-linear-to-b to-transparent bg-clip-text text-[8rem] leading-none font-extrabold text-transparent regal-gradient-text regal-glow'>
-        404
-      </span>
+      <div className="relative">
+        <span className='from-foreground bg-linear-to-b to-transparent bg-clip-text text-[8rem] leading-none font-extrabold text-transparent ml-gradient-text'>
+          404
+        </span>
+        <span className="absolute -top-4 -right-8 text-4xl animate-bounce">🙈</span>
+      </div>
 
       <h2 className='font-heading my-4 text-2xl font-bold'>
-        Something&apos;s missing
+        Oops! This page went on vacation
       </h2>
 
-      <p className='mb-8 text-muted-foreground max-w-md'>
-        Sorry, the page you are looking for doesn&apos;t exist or has been moved.
+      <p className='mb-8 text-muted-foreground max-w-md font-semibold'>
+        Maybe AI can generate it... HAHA
       </p>
 
       <Button asChild>
         <Link href="/">
-          Return Home
+          Take Me Home
         </Link>
       </Button>
     </div>

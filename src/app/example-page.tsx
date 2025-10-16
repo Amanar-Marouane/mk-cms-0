@@ -51,7 +51,7 @@ export default function ExamplePage() {
                             <div className="mt-12 text-center">
                                 <ScrollReveal direction="up" delay={0.4}>
                                     <AnimatedButton
-                                        className="regal-gradient-bg text-black font-bold hover:opacity-90"
+                                        className="ml-gradient-bg text-black font-bold hover:opacity-90"
                                         size="lg"
                                         glowOnHover={true}
                                         pulse={true}

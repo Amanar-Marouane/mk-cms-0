@@ -52,15 +52,15 @@ export default function Investors() {
                     <section className="py-16 px-4 bg-background">
                         <div className="container mx-auto max-w-4xl">
                             <div className="mb-12">
-                                <h2 className="text-3xl font-bold mb-6 text-center">The CMS Market Opportunity</h2>
-                                <p className="text-lg text-muted-foreground text-center mb-12">
+                                <h2 className="text-3xl font-bold mb-6 text-center" data-aos="fade-up">The CMS Market Opportunity</h2>
+                                <p className="text-lg text-muted-foreground text-center mb-12" data-aos="fade-up" data-aos-delay="100">
                                     The CMS market is massive, yet still developer-dependent. MonkeysCMS redefines it with AI-driven automation and enterprise-grade infrastructure.
                                 </p>
 
                                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                                     {marketStats.map((stat, index) => (
-                                        <div key={index} className="bg-card p-6 rounded-lg border border-gray-800/20 text-center regal-box-glow">
-                                            <p className="text-3xl md:text-4xl font-bold regal-gradient-text mb-2">{stat.value}</p>
+                                        <div key={index} className="bg-card p-6 rounded-lg border border-border text-center ml-box-glow" data-aos="zoom-in" data-aos-delay={index * 100}>
+                                            <p className="text-3xl md:text-4xl font-bold ml-gradient-text mb-2">{stat.value}</p>
                                             <p className="text-sm text-muted-foreground">{stat.label}</p>
                                         </div>
                                     ))}
@@ -72,11 +72,11 @@ export default function Investors() {
                     {/* Investment Highlights */}
                     <section className="py-16 px-4 bg-background/80">
                         <div className="container mx-auto">
-                            <h2 className="text-3xl font-bold text-center mb-12">Why Invest Now</h2>
+                            <h2 className="text-3xl font-bold text-center mb-12" data-aos="fade-up">Why Invest Now</h2>
 
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                                 {investorPoints.map((point, index) => (
-                                    <div key={index} className="bg-card p-8 rounded-lg border border-gray-800/20 hover:border-primary/30 transition-colors">
+                                    <div key={index} className="bg-card p-8 rounded-lg border border-border hover:border-primary/30 transition-colors" data-aos="fade-up" data-aos-delay={index * 100}>
                                         <div className="mb-4">
                                             {point.icon}
                                         </div>
@@ -91,24 +91,24 @@ export default function Investors() {
                     {/* Business Model */}
                     <section className="py-16 px-4 bg-card">
                         <div className="container mx-auto max-w-4xl">
-                            <h2 className="text-3xl font-bold text-center mb-6">Our Business Model</h2>
-                            <p className="text-center text-muted-foreground max-w-3xl mx-auto mb-10">
+                            <h2 className="text-3xl font-bold text-center mb-6" data-aos="fade-up">Our Business Model</h2>
+                            <p className="text-center text-muted-foreground max-w-3xl mx-auto mb-10" data-aos="fade-up" data-aos-delay="100">
                                 While the core framework and CMS are free for developers, our revenue comes from premium services
                             </p>
 
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                                <div className="bg-background/20 p-6 rounded-lg border border-gray-800/20 hover:border-primary/30 transition-colors">
-                                    <h4 className="text-lg font-bold mb-3 regal-gradient-text">Specialized Hosting</h4>
+                                <div className="bg-background/20 p-6 rounded-lg border border-border hover:border-primary/30 transition-colors" data-aos="fade-up" data-aos-delay="100">
+                                    <h4 className="text-lg font-bold mb-3 ml-gradient-text">Specialized Hosting</h4>
                                     <p className="text-muted-foreground">Premium cloud infrastructure with enhanced security, scaling, and performance optimization.</p>
                                 </div>
 
-                                <div className="bg-background/20 p-6 rounded-lg border border-gray-800/20 hover:border-primary/30 transition-colors">
-                                    <h4 className="text-lg font-bold mb-3 regal-gradient-text">Custom Solutions</h4>
+                                <div className="bg-background/20 p-6 rounded-lg border border-border hover:border-primary/30 transition-colors" data-aos="fade-up" data-aos-delay="200">
+                                    <h4 className="text-lg font-bold mb-3 ml-gradient-text">Custom Solutions</h4>
                                     <p className="text-muted-foreground">Enterprise-grade development services for specialized business requirements and integrations.</p>
                                 </div>
 
-                                <div className="bg-background/20 p-6 rounded-lg border border-gray-800/20 hover:border-primary/30 transition-colors">
-                                    <h4 className="text-lg font-bold mb-3 regal-gradient-text">Pro AI Features</h4>
+                                <div className="bg-background/20 p-6 rounded-lg border border-border hover:border-primary/30 transition-colors" data-aos="fade-up" data-aos-delay="300">
+                                    <h4 className="text-lg font-bold mb-3 ml-gradient-text">Pro AI Features</h4>
                                     <p className="text-muted-foreground">Advanced AI capabilities for content generation, SEO, and performance optimization in premium plans.</p>
                                 </div>
                             </div>
@@ -117,14 +117,14 @@ export default function Investors() {
 
                     {/* Pitch Deck CTA */}
                     <section className="py-20 px-4 bg-background">
-                        <div className="container mx-auto text-center max-w-3xl">
+                        <div className="container mx-auto text-center max-w-3xl" data-aos="zoom-in">
                             <h2 className="text-3xl font-bold mb-6">Ready to Learn More?</h2>
                             <p className="text-muted-foreground mb-10">
                                 Our detailed investor deck covers market analysis, competitive landscape, financial projections, and our go-to-market strategy.
                             </p>
 
                             <div className="flex justify-center mb-8">
-                                <Button size="lg" onClick={openInvestorDeck} className="regal-gradient-bg hover:opacity-90 text-background">
+                                <Button size="lg" onClick={openInvestorDeck} className="ml-gradient-bg hover:opacity-90 text-white">
                                     View Investor Deck <ArrowRight className="ml-2 h-4 w-4" />
                                 </Button>
                             </div>

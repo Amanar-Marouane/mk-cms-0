@@ -37,7 +37,7 @@ export default function AboutPage() {
                     {/* Vision Section */}
                     <section className="py-20 px-4 bg-background">
                         <div className="container mx-auto">
-                            <div className="max-w-4xl mx-auto">
+                            <div className="max-w-4xl mx-auto" data-aos="fade-up">
                                 <div className="bg-card p-8 md:p-12 rounded-lg border border-gray-800/20">
                                     <h2 className="text-3xl font-bold mb-6">Our Vision</h2>
                                     <p className="text-muted-foreground mb-6">
@@ -57,9 +57,9 @@ export default function AboutPage() {
                     {/* Ecosystem Section */}
                     <section className="py-20 px-4 bg-background/80">
                         <div className="container mx-auto">
-                            <h2 className="text-3xl font-bold text-center mb-12">The MonkeysLegion Ecosystem</h2>
+                            <h2 className="text-3xl font-bold text-center mb-12" data-aos="fade-up">The MonkeysLegion Ecosystem</h2>
                             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                                <div className="bg-card p-6 rounded-lg border border-gray-800/20 hover:border-primary/30 transition-colors">
+                                <div className="bg-card p-6 rounded-lg border border-gray-800/20 hover:border-primary/30 transition-colors" data-aos="fade-up" data-aos-delay="100">
                                     <h3 className="text-2xl font-bold mb-4">Monkeys Framework</h3>
                                     <p className="text-muted-foreground mb-4">
                                         High-performance PHP/JS hybrid core powering modern web applications with enterprise-grade reliability.
@@ -70,7 +70,7 @@ export default function AboutPage() {
                                     </a>
                                 </div>
 
-                                <div className="bg-card p-6 rounded-lg border border-gray-800/20 hover:border-primary/30 transition-colors">
+                                <div className="bg-card p-6 rounded-lg border border-gray-800/20 hover:border-primary/30 transition-colors" data-aos="fade-up" data-aos-delay="200">
                                     <h3 className="text-2xl font-bold mb-4">Monkeys Cloud</h3>
                                     <p className="text-muted-foreground mb-4">
                                         Instant deployment infrastructure designed for speed and scalability, with AI-optimized hosting.
@@ -81,7 +81,7 @@ export default function AboutPage() {
                                     </a>
                                 </div>
 
-                                <div className="bg-card p-6 rounded-lg border border-gray-800/20 hover:border-primary/30 transition-colors">
+                                <div className="bg-card p-6 rounded-lg border border-gray-800/20 hover:border-primary/30 transition-colors" data-aos="fade-up" data-aos-delay="300">
                                     <h3 className="text-2xl font-bold mb-4">Monkeys Mail</h3>
                                     <p className="text-muted-foreground mb-4">
                                         Integrated email solution for seamless communication and automation within your applications.
@@ -98,12 +98,14 @@ export default function AboutPage() {
                     {/* Team Section */}
                     <section className="py-20 px-4 bg-card">
                         <div className="container mx-auto">
-                            <h2 className="text-3xl font-bold text-center mb-12">Meet the Team</h2>
+                            <h2 className="text-3xl font-bold text-center mb-12" data-aos="fade-up">Meet the Team</h2>
                             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                                {team.map((member) => (
+                                {team.map((member, index) => (
                                     <div
                                         key={member.name}
                                         className="bg-background/20 p-8 rounded-lg border border-gray-800/20 hover:border-primary/30 transition-colors"
+                                        data-aos="fade-up"
+                                        data-aos-delay={index * 100}
                                     >
                                         <div className="flex flex-col items-center text-center">
                                             <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary to-primary/50 p-1 mb-6">
@@ -130,17 +132,15 @@ export default function AboutPage() {
 
                     {/* Join Us CTA */}
                     <section className="container mx-auto px-4 py-20">
-                        <div className="max-w-3xl mx-auto text-center">
-                            <h2 className="text-3xl md:text-4xl font-bold mb-6 regal-gradient-text">
+                        <div className="max-w-3xl mx-auto text-center" data-aos="zoom-in">
+                            <h2 className="text-3xl md:text-4xl font-bold mb-6 ml-gradient-text">
                                 Join the Revolution
-                            </h2>
-                            <p className="text-xl text-gray-300 mb-8">
                                 We're looking for passionate developers, investors, and partners who want to shape the future of web creation.
-                            </p>
+                            </h2>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                 <a
                                     href="/contact"
-                                    className="px-8 py-4 regal-gradient-bg text-background font-bold rounded-lg hover:opacity-90 transition-opacity"
+                                    className="px-8 py-4 ml-gradient-bg text-white font-bold rounded-lg hover:opacity-90 transition-opacity"
                                 >
                                     Get In Touch
                                 </a>

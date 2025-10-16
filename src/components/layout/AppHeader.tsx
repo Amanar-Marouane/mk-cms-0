@@ -7,6 +7,7 @@ import React from 'react';
 import { Logo } from '../ui/logo';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { navLinks } from '@/constants/data';
 
 interface AppHeaderProps {
     children?: React.ReactNode;
@@ -29,17 +30,6 @@ export default function AppHeader({
 }: AppHeaderProps) {
     const pathname = usePathname();
 
-    // Navigation links for the site
-    const navLinks = [
-        { name: 'Home', href: '/' },
-        { name: 'How It Works', href: '/how-it-works' },
-        { name: 'Technology', href: '/technology' },
-        { name: 'For Investors', href: '/investors' },
-        { name: 'Business Model', href: '/business-model' }, // Added Business Model link
-        { name: 'About', href: '/about' },
-        { name: 'Contact', href: '/contact' },
-    ];
-
     // Default left content with logo
     const defaultLeftContent = (
         <Link href="/" className="flex items-center">
@@ -60,7 +50,7 @@ export default function AppHeader({
                             key={link.name}
                             href={link.href}
                             className={`text-sm ${isActive
-                                ? 'text-primary font-medium regal-glow'
+                                ? 'text-primary font-medium'
                                 : 'text-muted-foreground hover:text-primary'
                                 } transition-colors`}
                         >
@@ -73,7 +63,7 @@ export default function AppHeader({
     );
 
     return (
-        <header className={`flex ${height} shrink-0 items-center justify-between gap-2 transition-[width,height] ease-linear border-b border-gray-800/20 bg-background/80 backdrop-blur-sm ${className}`}>
+        <header className={`flex ${height} shrink-0 items-center justify-between gap-2 transition-[width,height] ease-linear border-b border-border bg-background/80 backdrop-blur-sm ${className}`}>
             <div className='flex items-center gap-2 px-4'>
                 {showSidebar && <SidebarTrigger />}
                 {showSeparator && showSidebar && <Separator orientation='vertical' className='mr-2 h-4' />}

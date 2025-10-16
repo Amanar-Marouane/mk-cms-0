@@ -31,16 +31,16 @@ export default function DemoPage() {
                     {/* Demo Section */}
                     <section className="py-16 px-4 bg-background">
                         <div className="container mx-auto">
-                            <div className="grid md:grid-cols-5 gap-8">
+                            <div className="grid md:grid-cols-5 gap-8 flex items-center">
                                 {/* Left Column - Demo Preview */}
-                                <div className="md:col-span-3 regal-box-glow rounded-lg overflow-hidden">
+                                <div className="md:col-span-3 rounded-lg overflow-hidden" data-aos="fade-right">
                                     <AIDemoPreview />
                                 </div>
 
                                 {/* Right Column - Info */}
                                 <div className="md:col-span-2 space-y-8">
                                     {/* How It Works */}
-                                    <div className="bg-card p-6 rounded-lg border border-gray-800/20">
+                                    <div className="bg-card p-6 rounded-lg border border-border" data-aos="fade-left">
                                         <div className="flex items-center gap-2 mb-4">
                                             <Info className="h-5 w-5 text-primary" />
                                             <h3 className="text-lg font-bold">How It Works</h3>
@@ -60,7 +60,7 @@ export default function DemoPage() {
                                     </div>
 
                                     {/* Example Prompts */}
-                                    <div className="bg-card p-6 rounded-lg border border-gray-800/20">
+                                    <div className="bg-card p-6 rounded-lg border border-border" data-aos="fade-left">
                                         <div className="flex items-center gap-2 mb-4">
                                             <Lightbulb className="h-5 w-5 text-primary" />
                                             <h3 className="text-lg font-bold">Example Prompts</h3>
@@ -85,10 +85,10 @@ export default function DemoPage() {
                     {/* Features Highlight */}
                     <section className="py-16 px-4 bg-background/60">
                         <div className="container mx-auto max-w-4xl">
-                            <h2 className="text-2xl font-bold text-center mb-12 regal-gradient-text">Key Features</h2>
+                            <h2 className="text-2xl font-bold text-center mb-12 ml-gradient-text">Key Features</h2>
 
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                                <div className="bg-card p-6 rounded-lg border border-gray-800/20 hover:regal-box-glow transition-all duration-300">
+                                <div className="bg-card p-6 rounded-lg border border-border hover:border-primary/30 transition-colors" data-aos="fade-right">
                                     <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
                                         <Sparkles className="h-6 w-6 text-primary" />
                                     </div>
@@ -98,7 +98,7 @@ export default function DemoPage() {
                                     </p>
                                 </div>
 
-                                <div className="bg-card p-6 rounded-lg border border-gray-800/20 hover:regal-box-glow transition-all duration-300">
+                                <div className="bg-card p-6 rounded-lg border border-border hover:border-primary/30 transition-colors" data-aos="fade-up">
                                     <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
                                         <svg className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -110,7 +110,7 @@ export default function DemoPage() {
                                     </p>
                                 </div>
 
-                                <div className="bg-card p-6 rounded-lg border border-gray-800/20 hover:regal-box-glow transition-all duration-300">
+                                <div className="bg-card p-6 rounded-lg border border-border hover:border-primary/30 transition-colors" data-aos="fade-left">
                                     <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
                                         <svg className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />

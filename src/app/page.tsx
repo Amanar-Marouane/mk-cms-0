@@ -14,7 +14,7 @@ export default function Page() {
       <PageContainer padding='p-0' fullHeight={false} scrollable={false} className="min-h-screen">
         <div className='w-full'>
           {/* Hero Section */}
-          <section className="regal-hero-bg min-h-screen flex flex-col items-center justify-center text-center px-4 py-12 md:py-20">
+          <section className="ml-hero-bg min-h-screen flex flex-col items-center justify-center text-center px-4 py-12 md:py-20">
             <div data-aos="fade-up" data-aos-delay="100" className="w-full">
               <div className="max-w-4xl mx-auto space-y-4 md:space-y-6 mb-8 md:mb-12">
                 <div className="flex justify-center mb-6">
@@ -27,7 +27,7 @@ export default function Page() {
                   </p>
                 </div>
 
-                <h1 className="text-4xl md:text-6xl font-bold tracking-tight regal-gradient-text regal-glow">
+                <h1 className="text-4xl md:text-6xl font-bold tracking-tight ml-gradient-text ml-glow">
                   AI Builds. You Deploy. Instantly.
                 </h1>
 
@@ -59,7 +59,7 @@ export default function Page() {
                     data-aos="fade-up"
                     data-aos-delay={index * 100}
                   >
-                    <div className="bg-card p-6 rounded-lg border border-gray-800/20 text-center hover:border-primary/30 transition-colors h-full flex flex-col">
+                    <div className="bg-card p-6 rounded-lg border border-border text-center hover:border-primary/30 transition-colors h-full flex flex-col">
                       <div className="flex justify-center items-center mb-4 flex-grow">
                         <Logo variant={variant as any} height={30} />
                       </div>

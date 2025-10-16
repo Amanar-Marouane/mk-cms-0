@@ -22,7 +22,7 @@ export function AnimatedButton({
     const [isHovered, setIsHovered] = useState(false);
 
     // For gradient buttons, add a glow effect
-    const isGradient = className?.includes('regal-gradient-bg') || false;
+    const isGradient = className?.includes('ml-gradient-bg') || false;
 
     return (
         <motion.div
@@ -43,10 +43,10 @@ export function AnimatedButton({
             onHoverStart={() => setIsHovered(true)}
             onHoverEnd={() => setIsHovered(false)}
         >
-            {/* Glow effect for gradient buttons */}
+            {/* Glow effect for gradient buttons - Orange glow */}
             {isGradient && glowOnHover && (
                 <motion.div
-                    className="absolute inset-0 rounded-lg bg-gradient-to-r from-cyan-400 to-green-400 blur-lg"
+                    className="absolute inset-0 rounded-lg bg-gradient-to-r from-[#ea8a0a] to-[#15225A] blur-lg"
                     initial={{ opacity: 0, scale: 1 }}
                     animate={{
                         opacity: isHovered ? 0.6 : 0,
