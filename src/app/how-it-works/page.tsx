@@ -3,7 +3,7 @@
 import PageContainer from '@/components/layout/page-container';
 import Footer from '@/components/ui/footer';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Monitor, Rocket, Sparkles } from 'lucide-react';
+import { ArrowRight, Monitor, Rocket, Sparkles, MessageSquare, Eye, Send } from 'lucide-react';
 import SiteLayout from '@/components/layout/SiteLayout';
 import AnimatedHeader from '@/components/ui/animated-header';
 import Link from 'next/link';
@@ -107,35 +107,44 @@ export default function HowItWorks() {
                             <h2 className="text-3xl font-bold text-center mb-16" data-aos="fade-up">3 Simple Steps to Your New Website</h2>
 
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-                                {/* Step 1 */}
-                                <div className="bg-card p-6 rounded-lg border border-border hover:border-primary/30 transition-colors relative" data-aos="fade-right" data-aos-delay="100">
+                                {/* Step 1 - Describe */}
+                                <div className="bg-card p-6 rounded-lg border border-border hover:border-primary/30 transition-colors relative" data-aos="fade-left" data-aos-delay="100">
                                     <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 ml-gradient-bg w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg">
                                         1
                                     </div>
-                                    <h3 className="text-xl font-bold mt-6 mb-4">Describe Your Idea</h3>
-                                    <p className="text-muted-foreground mb-4">
+                                    <div className="mb-6 mt-2 flex justify-start">
+                                        <MessageSquare className="h-12 w-12 text-primary" strokeWidth={1.5} />
+                                    </div>
+                                    <h3 className="text-xl font-bold mb-4">Describe Your Idea</h3>
+                                    <p className="text-muted-foreground">
                                         Tell our AI what you need. Describe your business, goals, and preferences.
                                     </p>
                                 </div>
 
-                                {/* Step 2 */}
-                                <div className="bg-card p-6 rounded-lg border border-border hover:border-primary/30 transition-colors relative" data-aos="fade-up" data-aos-delay="200">
+                                {/* Step 2 - Preview */}
+                                <div className="bg-card p-6 rounded-lg border border-border hover:border-primary/30 transition-colors relative" data-aos="fade-left" data-aos-delay="200">
                                     <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 ml-gradient-bg w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg">
                                         2
                                     </div>
-                                    <h3 className="text-xl font-bold mt-6 mb-4">Preview Instantly</h3>
-                                    <p className="text-muted-foreground mb-4">
+                                    <div className="mb-6 mt-2 flex justify-start">
+                                        <Eye className="h-12 w-12 text-primary" strokeWidth={1.5} />
+                                    </div>
+                                    <h3 className="text-xl font-bold mb-4">Preview Instantly</h3>
+                                    <p className="text-muted-foreground">
                                         See your website come to life in real-time with full SEO and responsive design.
                                     </p>
                                 </div>
 
-                                {/* Step 3 */}
+                                {/* Step 3 - Deploy */}
                                 <div className="bg-card p-6 rounded-lg border border-border hover:border-primary/30 transition-colors relative" data-aos="fade-left" data-aos-delay="300">
                                     <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 ml-gradient-bg w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg">
                                         3
                                     </div>
-                                    <h3 className="text-xl font-bold mt-6 mb-4">Deploy Anywhere</h3>
-                                    <p className="text-muted-foreground mb-4">
+                                    <div className="mb-6 mt-2 flex justify-start">
+                                        <Send className="h-12 w-12 text-primary" strokeWidth={1.5} />
+                                    </div>
+                                    <h3 className="text-xl font-bold mb-4">Deploy Anywhere</h3>
+                                    <p className="text-muted-foreground">
                                         Deploy to Monkeys Cloud for instant hosting or export to your preferred platform.
                                     </p>
                                 </div>
@@ -161,12 +170,6 @@ export default function HowItWorks() {
                                         <p className="text-sm text-muted-foreground">{site.description}</p>
                                     </div>
                                 ))}
-                            </div>
-
-                            <div className="mt-16 text-center" data-aos="fade-up" data-aos-delay="400">
-                                <Button size="lg" className="ml-gradient-bg hover:opacity-90 text-white">
-                                    Try the Demo <ArrowRight className="ml-2 h-4 w-4" />
-                                </Button>
                             </div>
                         </div>
                     </section>

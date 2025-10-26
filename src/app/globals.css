@@ -192,11 +192,11 @@
 }
 
 .ml-glow {
-  text-shadow: 0 0 10px rgba(234, 138, 10, 0.7), 0 0 20px rgba(234, 138, 10, 0.5);
+  text-shadow: 0 0 5px rgba(234, 138, 10, 0.7), 0 0 5px rgba(234, 138, 10, 0.5);
 }
 
 .ml-box-glow {
-  box-shadow: 0 0 15px rgba(234, 138, 10, 0.3), 0 0 30px rgba(234, 138, 10, 0.2);
+  box-shadow: 0 0 10px rgba(234, 138, 10, 0.3), 0 0 10px rgba(234, 138, 10, 0.2);
 }
 
 .ml-hero-bg {

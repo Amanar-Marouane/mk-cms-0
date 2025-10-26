@@ -1,12 +1,10 @@
 'use client';
 
+import AIDemoPreview from '@/components/demo/AIDemoPreview';
 import PageContainer from '@/components/layout/page-container';
+import SiteLayout from '@/components/layout/SiteLayout';
 import Footer from '@/components/ui/footer';
 import { Logo } from '@/components/ui/logo';
-import SiteLayout from '@/components/layout/SiteLayout';
-import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
-import AIDemoPreview from '@/components/demo/AIDemoPreview';
 
 export default function Page() {
   return (
@@ -27,7 +25,7 @@ export default function Page() {
                   </p>
                 </div>
 
-                <h1 className="text-4xl md:text-6xl font-bold tracking-tight ml-gradient-text ml-glow">
+                <h1 className="text-4xl md:text-6xl font-bold tracking-tight ml-gradient-text">
                   AI Builds. You Deploy. Instantly.
                 </h1>
 
@@ -52,8 +50,8 @@ export default function Page() {
                 <h2 className="text-2xl font-bold text-center mb-10">Built on the Monkeys Ecosystem</h2>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {['monkeyslegion', 'monkeyscloud', 'monkeysmail', 'monkeyscms'].map((variant, index) => (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {['monkeyslegion', 'monkeyscloud', 'monkeysmail'].map((variant, index) => (
                   <div
                     key={variant}
                     data-aos="fade-up"
@@ -67,7 +65,6 @@ export default function Page() {
                         {index === 0 && "High-performance JS/PHP hybrid core"}
                         {index === 1 && "Cloud-ready infrastructure for instant deployments"}
                         {index === 2 && "Integrated email services for your applications"}
-                        {index === 3 && "AI-powered CMS for automated website generation"}
                       </p>
                     </div>
                   </div>

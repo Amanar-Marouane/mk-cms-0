@@ -10,13 +10,18 @@ export interface NavItem {
 
 export const navItems: NavItem[] = [];
 
+export interface NavLink {
+  name: string;
+  href: string;
+}
+
 // Navigation links for the site
-export const navLinks = [
+export const navLinks: NavLink[] = [
   { name: 'Home', href: '/' },
   { name: 'How It Works', href: '/how-it-works' },
   { name: 'Technology', href: '/technology' },
   { name: 'For Investors', href: '/investors' },
   { name: 'Business Model', href: '/business-model' },
   { name: 'About', href: '/about' },
-  { name: 'Contact', href: '/contact' },
+  // { name: 'Contact', href: '/contact' },
 ];

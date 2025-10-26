@@ -57,7 +57,7 @@ export default function Investors() {
                                     The CMS market is massive, yet still developer-dependent. MonkeysCMS redefines it with AI-driven automation and enterprise-grade infrastructure.
                                 </p>
 
-                                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                                <div className="grid grid-cols-2 gap-6">
                                     {marketStats.map((stat, index) => (
                                         <div key={index} className="bg-card p-6 rounded-lg border border-border text-center ml-box-glow" data-aos="zoom-in" data-aos-delay={index * 100}>
                                             <p className="text-3xl md:text-4xl font-bold ml-gradient-text mb-2">{stat.value}</p>
@@ -74,14 +74,30 @@ export default function Investors() {
                         <div className="container mx-auto">
                             <h2 className="text-3xl font-bold text-center mb-12" data-aos="fade-up">Why Invest Now</h2>
 
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
                                 {investorPoints.map((point, index) => (
-                                    <div key={index} className="bg-card p-8 rounded-lg border border-border hover:border-primary/30 transition-colors" data-aos="fade-up" data-aos-delay={index * 100}>
+                                    <div
+                                        key={index}
+                                        className={`rounded-lg border transition-colors ${index === 1
+                                            ? 'bg-primary text-white p-10 md:scale-110 border-primary md:col-span-1'
+                                            : 'bg-card text-foreground p-8 border-border hover:border-primary/30'
+                                            }`}
+                                        data-aos="zoom-in"
+                                        data-aos-delay={index * 100}
+                                    >
                                         <div className="mb-4">
-                                            {point.icon}
+                                            {index === 1 ? (
+                                                <BarChart2 className="h-8 w-8 text-white" />
+                                            ) : (
+                                                point.icon
+                                            )}
                                         </div>
-                                        <h3 className="text-xl font-bold mb-3">{point.title}</h3>
-                                        <p className="text-muted-foreground">{point.description}</p>
+                                        <h3 className={`text-xl font-bold mb-3 ${index === 1 ? 'text-white' : ''}`}>
+                                            {point.title}
+                                        </h3>
+                                        <p className={index === 1 ? 'text-white/90' : 'text-muted-foreground'}>
+                                            {point.description}
+                                        </p>
                                     </div>
                                 ))}
                             </div>

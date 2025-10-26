@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 interface AnimatedHeaderProps {
     title: string;
@@ -19,17 +19,21 @@ export default function AnimatedHeader({
     height = 'py-20',
 }: AnimatedHeaderProps) {
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    const containerRef = useRef<HTMLDivElement>(null);
+    const animationIdRef = useRef<number | null>(null);
+    const isInitializedRef = useRef(false);
 
-    // Advanced animation for wave effect
+    // Initialize simple wave animation only on client side
     useEffect(() => {
+        if (isInitializedRef.current) return;
+        isInitializedRef.current = true;
+
         const canvas = canvasRef.current;
         if (!canvas) return;
 
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
 
-        // Set canvas to full width/height and handle resize
+        // Set canvas size
         const resizeCanvas = () => {
             const devicePixelRatio = window.devicePixelRatio || 1;
             const rect = canvas.getBoundingClientRect();
@@ -40,150 +44,80 @@ export default function AnimatedHeader({
             ctx.scale(devicePixelRatio, devicePixelRatio);
         };
 
-        window.addEventListener('resize', resizeCanvas);
+        const handleResize = () => {
+            resizeCanvas();
+        };
+
+        window.addEventListener('resize', handleResize);
         resizeCanvas();
 
-        // Animation variables - Orange theme
-        const waves = [
-            {
-                color: 'rgba(234, 138, 10, 0.05)', // Orange
-                amplitude: 25,
-                frequency: 0.02,
-                speed: 0.05,
-                phase: 0,
-                points: 5,
-                blur: 30
-            },
-            {
-                color: 'rgba(234, 95, 21, 0.03)', // Orange Darker
-                amplitude: 20,
-                frequency: 0.03,
-                speed: 0.03,
-                phase: 2,
-                points: 6,
-                blur: 20
-            },
-            {
-                color: 'rgba(234, 138, 10, 0.03)', // Orange lighter
-                amplitude: 35,
-                frequency: 0.01,
-                speed: 0.02,
-                phase: 4,
-                points: 4,
-                blur: 15
-            },
-        ];
+        // Simple wave animation variables
+        let time = 0;
+        const waveAmplitude = 15;
+        const waveFrequency = 0.015;
+        const waveSpeed = 0.05;
 
-        // Create multiple points on the wave for more natural movement
-        const createWavePoints = (wave: any, width: number, height: number) => {
-            const points = [];
-            const count = wave.points * 3;
-
-            for (let i = 0; i <= count; i++) {
-                const x = (width / count) * i;
-                const y = Math.sin(i * wave.frequency + wave.phase) * wave.amplitude + (height / 2);
-                points.push({ x, y });
-            }
-
-            return points;
-        };
-
-        // Draw a smooth curve through points
-        const drawCurve = (points: { x: number, y: number }[], ctx: CanvasRenderingContext2D) => {
-            ctx.beginPath();
-            ctx.moveTo(0, 0);
-            ctx.lineTo(points[0].x, points[0].y);
-
-            for (let i = 0; i < points.length - 1; i++) {
-                const xc = (points[i].x + points[i + 1].x) / 2;
-                const yc = (points[i].y + points[i + 1].y) / 2;
-                ctx.quadraticCurveTo(points[i].x, points[i].y, xc, yc);
-            }
-
-            const lastPoint = points[points.length - 1];
-            ctx.quadraticCurveTo(lastPoint.x, lastPoint.y, lastPoint.x, lastPoint.y);
-            ctx.lineTo(canvas.width, 0);
-            ctx.lineTo(0, 0);
-            ctx.closePath();
-        };
-
-        // Animation function
+        // Animation loop
         const animate = () => {
             if (!canvas || !ctx) return;
 
-            const rect = canvas.getBoundingClientRect();
-            ctx.clearRect(0, 0, rect.width, rect.height);
+            const width = canvas.width;
+            const height = canvas.height;
+            const midY = height / 2;
 
-            waves.forEach(wave => {
-                // Update wave phase
-                wave.phase += wave.speed;
-                if (wave.phase > Math.PI * 2) {
-                    wave.phase = 0;
-                }
+            // Clear canvas
+            ctx.clearRect(0, 0, width, height);
 
-                // Create points for this frame
-                const points = createWavePoints(wave, rect.width, rect.height);
+            // Draw wave
+            ctx.beginPath();
+            ctx.moveTo(0, midY);
 
-                // Draw wave with gradient and blur
-                ctx.save();
+            for (let x = 0; x <= width; x += 5) {
+                const y = Math.sin(x * waveFrequency + time) * waveAmplitude + midY;
+                ctx.lineTo(x, y);
+            }
 
-                // Create gradient
-                const gradient = ctx.createLinearGradient(0, 0, rect.width, 0);
-                gradient.addColorStop(0, wave.color);
-                gradient.addColorStop(0.5, wave.color.replace(/[\d.]+\)$/g, '0.07)'));
-                gradient.addColorStop(1, wave.color);
+            // Fill wave area
+            ctx.lineTo(width, height);
+            ctx.lineTo(0, height);
+            ctx.closePath();
 
-                // Apply blur effect
-                ctx.filter = `blur(${wave.blur}px)`;
-                ctx.fillStyle = gradient;
+            // Create gradient
+            const gradient = ctx.createLinearGradient(0, midY - waveAmplitude, 0, height);
+            gradient.addColorStop(0, 'rgba(234, 138, 10, 0.1)');
+            gradient.addColorStop(0.5, 'rgba(234, 138, 10, 0.05)');
+            gradient.addColorStop(1, 'rgba(234, 138, 10, 0)');
 
-                drawCurve(points, ctx);
-                ctx.fill();
-                ctx.restore();
-            });
+            ctx.fillStyle = gradient;
+            ctx.fill();
+
+            // Draw wave stroke
+            ctx.beginPath();
+            ctx.moveTo(0, midY);
+
+            for (let x = 0; x <= width; x += 5) {
+                const y = Math.sin(x * waveFrequency + time) * waveAmplitude + midY;
+                ctx.lineTo(x, y);
+            }
+
+            ctx.strokeStyle = 'rgba(234, 138, 10, 0.2)';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            // Update time for animation
+            time += waveSpeed;
+
+            animationIdRef.current = requestAnimationFrame(animate);
         };
 
-        // Use requestAnimationFrame for better performance
-        let animationId: number;
-        const runAnimation = () => {
-            animate();
-            animationId = requestAnimationFrame(runAnimation);
-        };
+        animationIdRef.current = requestAnimationFrame(animate);
 
-        runAnimation();
-
-        // Add mouse movement effect
-        if (containerRef.current) {
-            const handleMouseMove = (e: MouseEvent) => {
-                const rect = containerRef.current!.getBoundingClientRect();
-                const x = (e.clientX - rect.left) / rect.width;
-                const y = (e.clientY - rect.top) / rect.height;
-
-                waves.forEach((wave, index) => {
-                    // Adjust amplitude based on mouse position
-                    const targetAmplitude = wave.amplitude + (x * 10 - 5) + (index * 2);
-                    const targetFrequency = wave.frequency + ((y * 0.01) - 0.005);
-
-                    // Simple easing
-                    wave.amplitude += (targetAmplitude - wave.amplitude) * 0.1;
-                    wave.frequency += (targetFrequency - wave.frequency) * 0.1;
-                });
-            };
-
-            containerRef.current.addEventListener('mousemove', handleMouseMove);
-
-            return () => {
-                if (containerRef.current) {
-                    containerRef.current.removeEventListener('mousemove', handleMouseMove);
-                }
-                cancelAnimationFrame(animationId);
-                window.removeEventListener('resize', resizeCanvas);
-            };
-        }
-
+        // Cleanup
         return () => {
-            cancelAnimationFrame(animationId);
-            window.removeEventListener('resize', resizeCanvas);
+            if (animationIdRef.current) {
+                cancelAnimationFrame(animationIdRef.current);
+            }
+            window.removeEventListener('resize', handleResize);
         };
     }, []);
 
@@ -193,38 +127,12 @@ export default function AnimatedHeader({
         'right': 'text-right'
     }[align];
 
-    // Properly typed Framer Motion variants
-    const titleVariants: Variants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.8,
-                ease: [0.22, 1, 0.36, 1]
-            }
-        }
-    };
-
-    const subtitleVariants: Variants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.8,
-                delay: 0.2,
-                ease: [0.22, 1, 0.36, 1]
-            }
-        }
-    };
-
     // Generate particle data - Orange particles
-    const particles = Array.from({ length: 20 }).map((_, index) => ({
+    const particles = Array.from({ length: 15 }).map((_, index) => ({
         id: index,
         initialX: `${Math.random() * 100}%`,
         initialY: `${Math.random() * 100}%`,
-        opacity: Math.random() * 0.5 + 0.2,
+        opacity: Math.random() * 0.3 + 0.1,
         positions: {
             x: [
                 `${(Math.random() * 80) + 10}%`,
@@ -237,27 +145,26 @@ export default function AnimatedHeader({
                 `${(Math.random() * 80) + 10}%`
             ],
         },
-        duration: 20 + Math.random() * 10
+        duration: 25 + Math.random() * 15
     }));
 
     return (
         <section
-            ref={containerRef}
             className={`relative overflow-hidden ${height} ${className}`}
         >
             {/* Canvas for wave animation */}
-            {/* <canvas
+            <canvas
                 ref={canvasRef}
                 className="absolute inset-0 w-full h-full"
                 style={{ zIndex: 0 }}
-            /> */}
+            />
 
-            {/* Animated dots in the background - Orange theme */}
+            {/* Animated dots in the background */}
             <div className="absolute inset-0 w-full h-full" style={{ zIndex: 0 }}>
                 {particles.map(particle => (
                     <motion.div
                         key={particle.id}
-                        className="absolute w-1 h-1 rounded-full bg-primary/20"
+                        className="absolute w-1 h-1 rounded-full bg-primary/15"
                         initial={{
                             x: particle.initialX,
                             y: particle.initialY,
@@ -282,9 +189,12 @@ export default function AnimatedHeader({
                 <div className={`max-w-4xl mx-auto ${textAlignment}`}>
                     <motion.h1
                         className="text-4xl md:text-5xl font-bold ml-gradient-text mb-6"
-                        initial="hidden"
-                        animate="visible"
-                        variants={titleVariants}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                            duration: 0.8,
+                            ease: [0.22, 1, 0.36, 1]
+                        }}
                     >
                         {title}
                     </motion.h1>
@@ -292,9 +202,13 @@ export default function AnimatedHeader({
                     {subtitle && (
                         <motion.p
                             className="text-xl text-muted-foreground max-w-3xl mx-auto"
-                            initial="hidden"
-                            animate="visible"
-                            variants={subtitleVariants}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{
+                                duration: 0.8,
+                                delay: 0.2,
+                                ease: [0.22, 1, 0.36, 1]
+                            }}
                         >
                             {subtitle}
                         </motion.p>

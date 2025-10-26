@@ -266,30 +266,32 @@ export default function BusinessModelPage() {
                                 {tiers.map((tier, index) => (
                                     <div
                                         key={index}
-                                        className={`bg-background/20 p-8 rounded-lg border flex flex-col justify-between items-start ${tier.highlighted ? 'border-primary/50' : 'border-gray-800/20'
+                                        className={`rounded-lg border flex flex-col justify-between items-start p-8 ${tier.highlighted
+                                            ? 'bg-primary text-white border-primary md:scale-110'
+                                            : 'bg-background/20 border-gray-800/20'
                                             } ${tier.highlighted ? 'ml-box-glow' : ''}`}
-                                        data-aos="fade-up"
+                                        data-aos="zoom-in"
                                         data-aos-delay={index * 100}
                                     >
-                                        <h3 className="text-2xl font-bold text-primary mb-2">{tier.name}</h3>
+                                        <h3 className={`text-2xl font-bold mb-2 ${tier.highlighted ? 'text-white' : 'text-primary'}`}>{tier.name}</h3>
                                         <div className="flex items-end mb-4">
-                                            <span className="text-4xl font-bold">{tier.price}</span>
-                                            {tier.period && <span className="text-muted-foreground ml-1">{tier.period}</span>}
+                                            <span className={`text-4xl font-bold ${tier.highlighted ? 'text-white' : ''}`}>{tier.price}</span>
+                                            {tier.period && <span className={`ml-1 ${tier.highlighted ? 'text-white/80' : 'text-muted-foreground'}`}>{tier.period}</span>}
                                         </div>
-                                        <p className="text-muted-foreground mb-6">{tier.description}</p>
+                                        <p className={`mb-6 ${tier.highlighted ? 'text-white/90' : 'text-muted-foreground'}`}>{tier.description}</p>
                                         <div className="space-y-3 mb-8 flex-grow">
                                             {tier.features.map((feature, i) => (
                                                 <div key={i} className="flex items-center">
-                                                    <div className="mr-2">
+                                                    <div className={`mr-2 ${tier.highlighted ? 'text-white' : ''}`}>
                                                         <CheckCircle2 className="h-5 w-5" />
                                                     </div>
-                                                    <span className="text-muted-foreground">{feature}</span>
+                                                    <span className={tier.highlighted ? 'text-white/90' : 'text-muted-foreground'}>{feature}</span>
                                                 </div>
                                             ))}
                                         </div>
                                         <Button
                                             className={`mt-auto w-full ${tier.highlighted
-                                                ? 'ml-gradient-bg text-white font-bold hover:opacity-90'
+                                                ? 'bg-white text-primary font-bold hover:bg-white/90'
                                                 : 'bg-card border border-primary/30 text-primary hover:bg-primary/10'
                                                 }`}
                                         >

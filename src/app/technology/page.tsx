@@ -8,6 +8,7 @@ import { Logo } from '@/components/ui/logo';
 import SiteLayout from '@/components/layout/SiteLayout';
 import AnimatedHeader from '@/components/ui/animated-header';
 import ScrollReveal from '@/components/ui/scroll-reveal';
+import Link from 'next/link';
 
 export default function Technology() {
     // Core framework features
@@ -240,9 +241,11 @@ export default function Technology() {
                             </div>
 
                             <div className="flex flex-wrap items-center justify-center gap-4" data-aos="fade-up" data-aos-delay="300">
-                                <Button size="lg" variant="outline" className="ml-gradient-border">
-                                    See the Demo
-                                </Button>
+                                <Link href={"/demo"}>
+                                    <Button size="lg" variant="outline" className="ml-gradient-border">
+                                        See the Demo
+                                    </Button>
+                                </Link>
                             </div>
                         </div>
                     </section>
