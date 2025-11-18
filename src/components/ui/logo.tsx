@@ -17,10 +17,10 @@ export function Logo({
     className,
 }: LogoProps) {
     const logos = {
-        monkeyslegion: '/MonkeysLegion.svg',
-        monkeyscloud: '/monkeyscloud.svg',
-        monkeysmail: '/monkeysmailer.svg',
-        monkeyscms: '/monkeyscms.svg',
+        monkeyslegion: '/logos/MonkeysLegion.svg',
+        monkeyscloud: '/logos/monkeyscloud.svg',
+        monkeysmail: '/logos/monkeysmailer.svg',
+        monkeyscms: '/logos/monkeyscms.svg',
     };
 
     const logoSrc = logos[variant];

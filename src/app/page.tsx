@@ -10,14 +10,14 @@ export default function Page() {
   return (
     <SiteLayout>
       <PageContainer padding='p-0' fullHeight={false} scrollable={false} className="min-h-screen">
-        <div className='w-full'>
+        <div className='w-full h-full'>
           {/* Hero Section */}
           <section className="ml-hero-bg min-h-screen flex flex-col items-center justify-center text-center px-4 py-12 md:py-20">
             <div data-aos="fade-up" data-aos-delay="100" className="w-full">
               <div className="max-w-4xl mx-auto space-y-4 md:space-y-6 mb-8 md:mb-12">
-                <div className="flex justify-center mb-6">
+                {/* <div className="flex justify-center mb-6">
                   <Logo variant="monkeyscms" width={240} height={60} />
-                </div>
+                </div> */}
 
                 <div className="inline-block mb-4 px-4 py-1 bg-white/5 backdrop-blur-sm rounded-full">
                   <p className="text-sm font-medium text-white">
